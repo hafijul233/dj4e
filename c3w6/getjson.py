@@ -14,9 +14,9 @@
 # shows how to parse JSON and extract a list is json2.py. You might also want to look at geoxml.py to see how to
 # prompt for a URL and retrieve data from a URL.
 
+import json
 import ssl
 import urllib.request
-import json
 
 # Ignore SSL certificate errors
 ctx = ssl.create_default_context()
