@@ -17,9 +17,10 @@
 # complete the assignment without writing a Python program. But that is not the point. The point is to write a clever
 # Python program to solve the program.
 
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
 import ssl
+from urllib.request import urlopen
+
+from bs4 import BeautifulSoup
 
 # Ignore SSL certificate errors
 ctx = ssl.create_default_context()

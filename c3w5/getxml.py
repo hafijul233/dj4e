@@ -46,7 +46,7 @@ allcomments = xmltree.findall('comments/comment/count')
 count = 0
 total = 0
 for tag in allcomments:
-    count +=1
+    count += 1
     total += int(tag.text)
 
 print('Count:', count)

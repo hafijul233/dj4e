@@ -16,9 +16,10 @@
 # <tr><td>Hubert</td><td><span class="comments">87</span></td></tr>
 # You are to find all the <span> tags in the file and pull out the numbers from the tag and sum the numbers.
 
-from urllib.request import urlopen
-from bs4 import BeautifulSoup
 import ssl
+from urllib.request import urlopen
+
+from bs4 import BeautifulSoup
 
 # Ignore SSL certificate errors
 ctx = ssl.create_default_context()

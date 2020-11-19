@@ -4,6 +4,6 @@
 
 text = "X-DSPAM-Confidence:    0.8475";
 ind = text.find(":")
-substr = text[ind+4:len(text)]
+substr = text[ind + 4:len(text)]
 value = float(substr)
 print(value)
