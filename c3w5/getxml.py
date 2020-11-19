@@ -25,20 +25,29 @@
 # http://www.py4e.com/code3/bs4.zip
 # and unzip it in the same directory as this file
 
-import urllib.request, urllib.parse, urllib.error
-from bs4 import BeautifulSoup
 import ssl
+import urllib.request
+import xml.etree.ElementTree as ET
 
 # Ignore SSL certificate errors
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
-url = input('Enter - ')
-html = urllib.request.urlopen(url, context=ctx).read()
-soup = BeautifulSoup(html, 'html.parser')
+url = input('Enter Location: ')
+xmlfile = urllib.request.urlopen(url, context=ctx).read()
+print('Retrieving', url)
+print('Retrieved ', len(xmlfile), ' characters')
 
+# convert to xml tree
+xmltree = ET.fromstring(xmlfile)
+allcomments = xmltree.findall('comments/comment/count')
 # Retrieve all of the anchor tags
-tags = soup('a')
-for tag in tags:
-    print(tag.get('href', None))
+count = 0
+total = 0
+for tag in allcomments:
+    count +=1
+    total += int(tag.text)
+
+print('Count:', count)
+print('Sum: ', total)
